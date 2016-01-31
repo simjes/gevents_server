@@ -1,2 +1,2 @@
 # events
-Server and App for events
+Node server for event app
