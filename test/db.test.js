@@ -1,26 +1,50 @@
 var mongoose = require('mongoose');
 var assert = require('chai').assert;
-var db = require('../lib/db_com');
 var Event = require('../lib/models/event');
 var User = require('../lib/models/user');
 var Host = require('../lib/models/host');
+var testEvent1;
 
 describe('database testing', function () {
-    var testEvent1 = new Event({
-        name: "test"
-    });
+
     before(function () {
         mongoose.connect('mongodb://localhost/db_test');
         
         //db.addEvent();
     });
 
-    describe('add event to db', function () {
-        it('should add event', function () {
-            var event = db.addEvent(testEvent1);
-            console.log("-------------------------test");
-            //assert.equal(event.name, testEvent1.name, "same");
+    after(function () {
+        mongoose.connection.db.dropDatabase(function (err, result) {
+            console.log(result);
         });
+    })
+
+    describe('event', function () {
+        testEvent1 = new Event({
+            name: "testname",
+            type: "lan",
+            date: new Date('01.02.2016'),
+            fb_link: "fblink",
+            web_link: "String",
+            address: "String",
+            coords: {
+                lat: 2,
+                lng: 2
+            },
+            price: 2,
+            hosts: ['host1', 'testhost'],
+            uploader: {
+                name: "simon"
+            }
+        });
+
+        it('adds a new event', function (done) {
+            testEvent1.save(function (err, event) {
+                assert(testEvent1.name == event.name, "names are not equal");
+                done();
+            });
+        });
+
     });
 });;
 
