@@ -3,14 +3,13 @@ var assert = require('chai').assert;
 var Event = require('../lib/models/event');
 var User = require('../lib/models/user');
 var Host = require('../lib/models/host');
+var db = require('../lib/db_com');
 var testEvent1;
-
+var testEvent2;
 describe('database testing', function () {
 
     before(function () {
         mongoose.connect('mongodb://localhost/db_test');
-        
-        //db.addEvent();
     });
 
     after(function () {
@@ -20,7 +19,8 @@ describe('database testing', function () {
     })
 
     describe('event', function () {
-        testEvent1 = new Event({
+
+        testEvent1 = {
             name: "testname",
             type: "lan",
             date: new Date('01.02.2016'),
@@ -36,29 +36,43 @@ describe('database testing', function () {
             uploader: {
                 name: "simon"
             }
-        });
+        }
+        testEvent2 = {
+            name: "testname2",
+            type: "lan2",
+            date: new Date('01.02.2016'),
+            fb_link: "fblink2",
+            web_link: "String2",
+            address: "String2",
+            coords: {
+                lat: 2,
+                lng: 2
+            },
+            price: 2,
+            hosts: ['host12', 'testhost2'],
+            uploader: {
+                name: "simon2"
+            }
+        }
 
         it('adds a new event', function (done) {
-            testEvent1.save(function (err, event) {
-                assert(testEvent1.name == event.name, "names are not equal");
+            db.addEvent(testEvent1, function (err, result) {
+                assert(testEvent1.name == result.name, "Could not add event, expected: " + testEvent1.name + ", got: " + result.name);
                 done();
             });
         });
 
+        it('get an event', function (done) {
+            db.addEvent(testEvent1, function (err, result) {
+                db.getEvent(result.id, function (err, event) {
+                    assert(result.id == event.id, "No the same id: expected: " + result.id + ", got: " + event.id);
+                    done();
+                });
+
+            });
+        });
+
+
+
     });
-});;
-
-/*describe('get all events from db', function() {
-  it('should give all events', function() {
-      var allEvents = db.getAllEvents();
-      assert.equal(allEvents.length, 2, "length ok");
-      assert.equal(allEvents[0].name, "test1", "first event ok");
-  });
 });
-
-describe('get single event from db', function() {
-  it('should give one event', function() {
-      //var allEvents = db.getEvent();
-  });
-});*/
-
