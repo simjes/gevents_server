@@ -10,9 +10,10 @@ describe('database testing for events', function () {
         mongoose.connect('mongodb://localhost/db_test');
     });
 
-    after(function () {
+    after(function (done) {
         mongoose.connection.db.dropDatabase(function (err, result) {
-            console.log(result);
+            mongoose.connection.close();
+            done();
         });
     })
 
@@ -35,7 +36,7 @@ describe('database testing for events', function () {
     }
     testEvent2 = {
         name: "testname2",
-        type: "lan2",
+        type: "cosplay",
         date: new Date('01.02.2016'),
         fb_link: "fblink2",
         web_link: "String2",
@@ -68,9 +69,24 @@ describe('database testing for events', function () {
         });
     });
 
+    it('get event by type', function (done) {
+        db.addEvent(testEvent1, function (err, firstEvent) {
+            db.addEvent(testEvent2, function (err, secondEvent) {
+                db.addEvent(testEvent1, function (err, thirdEvent) {
+                    db.getEventsByType("lan", function (err, result) {
+                        assert(result.length >= 2, "Length was wrong, Expected: 2 or more, got: " + result.length);
+                        result.forEach(function (item) {
+                            assert(item.type == firstEvent.type && item.type == thirdEvent.type, "Not the same type, Expected: lan, got: " + item.type + ", " + firstEvent.type + ", " + thirdEvent.type);
+                        });
+                        done();
+                    });
+                });
+            });
+        });
+    });
+
     describe('get all events in database', function () {
         before(function (done) {
-            //callback hell
             mongoose.connection.db.dropDatabase(function (err, result) {
                 db.addEvent(testEvent1, function () {
                     db.addEvent(testEvent2, function () {
