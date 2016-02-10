@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var assert = require('chai').assert;
-var Event = require('../lib/models/event');
 var db = require('../lib/db_com');
 var testEvent1, testEvent2;
 
@@ -69,7 +68,7 @@ describe('database testing for events', function () {
         });
     });
 
-    it('get event by type', function (done) {
+    it('get events by type', function (done) {
         db.addEvent(testEvent1, function (err, firstEvent) {
             db.addEvent(testEvent2, function (err, secondEvent) {
                 db.addEvent(testEvent1, function (err, thirdEvent) {

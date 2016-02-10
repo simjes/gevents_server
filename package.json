@@ -2,8 +2,10 @@
   "name": "gevents_server",
   "version": "1.0.0",
   "description": "Node server for event app",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "dev": "nodemon server",
+    "start": "node server",
     "test": "mocha test"
   },
   "repository": {
@@ -19,8 +21,8 @@
   "homepage": "https://github.com/simjes/gevents_server#readme",
   "dependencies": {
     "body-parser": "^1.14.2",
-    "mongoose": "^4.3.7",
-    "node-restful": "^0.2.5"
+    "express": "^4.13.4",
+    "mongoose": "^4.3.7"
   },
   "devDependencies": {
     "chai": "^3.5.0",

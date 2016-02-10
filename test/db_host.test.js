@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var assert = require('chai').assert;
 var db = require('../lib/db_com');
-var Host = require('../lib/models/host');
 
 var testHost1;
 
