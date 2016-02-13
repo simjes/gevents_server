@@ -13,12 +13,43 @@ router.route('/events')
         });
     })
     .post(function (req, res) {
-        //check if uploader is approved, if not save info to file? send to email? 
-        //save in another db for review? evt save with approved flag, change flag if ok
-        console.log(req.body);
-        db.addEvent(req.body, function (err, result) {
-           res.send(result); 
+        //Check if user is approved to add events. Event is approved if the user is approved.
+        db.getUser(req.body.uploader.fb_id, function (err, user) {
+            if (user === null) {
+                req.body.uploader.approved = false;
+                db.addUser(req.body.uploader, function (err, createdUser) {
+                    req.body.approved = false;
+                    addEventAndRespond(req.body, res);
+                });
+            } else {
+                if (user.approved) {
+                    req.body.approved = true;
+                } else {
+                    req.body.approved = false;
+                }
+                addEventAndRespond(req.body, res);
+            }
         });
     });
+
+function addEventAndRespond(eventInfo, apiResponse) {
+    db.addEvent(eventInfo, function (err, result) {
+        console.log(result);
+        apiResponse.send(result); //temp response
+    });
+}
+
+router.route('/events/:event_id')
+    .get(function (req, res) {
+        db.getEvent(req.params.event_id, function(err, event) {
+           res.send(event); 
+        });
+    });
+
+
+//TODO:
+//find events by type
+//find events nearby: get user pos, check coords with radius
+//find coords for an adresse: do this client side?
 
 module.exports = router;

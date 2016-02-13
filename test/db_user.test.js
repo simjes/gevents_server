@@ -33,7 +33,7 @@ describe('database testing for user', function () {
 
     it('get user from db', function (done) {
         db.addUser(testUser, function (err, savedResult) {
-            db.getUser(savedResult.id, function (err, result) {
+            db.getUser(savedResult.fb_id, function (err, result) {
                 assert(testUser.name == result.name, "Names did not match. Expected: " + testUser.name + ", got: " + result.name);
                 done();
             });
