@@ -9,9 +9,12 @@ describe('database testing for hosts', function () {
         mongoose.connect('mongodb://localhost/db_test');
     });
 
-    after(function (done) {
+    after(function () {
+        mongoose.connection.close();
+    });
+
+    afterEach(function (done) {
         mongoose.connection.db.dropDatabase(function (err, result) {
-            mongoose.connection.close();
             done();
         });
     });
@@ -29,13 +32,13 @@ describe('database testing for hosts', function () {
             done();
         });
     });
-    
+
     it('get host from db', function (done) {
         db.addHost(testHost1, function (err, savedHost) {
-           db.getHostInfo(savedHost._id, function(err, result) {
-               assert(savedHost.id == result.id, "Id does not match. Expected: " + savedHost._id + ", got: " + result._id);
-               done();
-           }); 
+            db.getHostInfo(savedHost.name, function (err, result) {
+                assert(savedHost.id == result.id, "Id does not match. Expected: " + savedHost._id + ", got: " + result._id);
+                done();
+            });
         });
     });
 });
