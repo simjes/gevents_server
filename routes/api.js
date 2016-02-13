@@ -4,13 +4,16 @@ var db = require('../lib/db_com');
 
 router.route('/events')
     .get(function (req, res) {
-        db.getAllEvents(function (err, result) {
-            if (err) {
-                res.send("Could not get events");
-            } else {
-                res.send(result);
-            }
-        });
+        var type = req.param('type');
+        if (type != null) {
+            db.getEventsByType(type, function (err, events) {
+                res.send(events);
+            });
+        } else {
+            db.getAllEvents(function (err, events) {
+                res.send(events);
+            });
+        }
     })
     .post(function (req, res) {
         //Check if user is approved to add events. Event is approved if the user is approved.
@@ -41,14 +44,12 @@ function addEventAndRespond(eventInfo, apiResponse) {
 
 router.route('/events/:event_id')
     .get(function (req, res) {
-        db.getEvent(req.params.event_id, function(err, event) {
-           res.send(event); 
+        db.getEvent(req.params.event_id, function (err, event) {
+            res.send(event);
         });
     });
 
-
 //TODO:
-//find events by type
 //find events nearby: get user pos, check coords with radius
 //find coords for an adresse: do this client side?
 
