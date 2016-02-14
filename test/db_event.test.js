@@ -19,7 +19,8 @@ describe('database testing for events', function () {
     testEvent1 = {
         name: "testname",
         type: "lan",
-        date: new Date('01.02.2016'),
+        date_start: "2200-06-30T18:00:00.000Z",
+        date_end: "2200-07-03T12:00:00.000Z",
         fb_link: "fblink",
         web_link: "String",
         address: "String",
@@ -37,7 +38,8 @@ describe('database testing for events', function () {
     testEvent2 = {
         name: "testname2",
         type: "cosplay",
-        date: new Date('01.02.2016'),
+        date_start: "2200-06-30T18:00:00.000Z",
+        date_end: "2200-07-03T12:00:00.000Z",
         fb_link: "fblink2",
         web_link: "String2",
         address: "String2",
@@ -56,7 +58,8 @@ describe('database testing for events', function () {
     testEvent3 = {
         name: "testname3",
         type: "lan",
-        date: new Date('01.02.2016'),
+        date_start: "2200-06-30T18:00:00.000Z",
+        date_end: "2200-07-03T12:00:00.000Z",
         fb_link: "fblink2",
         web_link: "String2",
         address: "String2",
