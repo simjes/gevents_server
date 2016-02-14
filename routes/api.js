@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require('../lib/db_com');
 
 router.route('/events')
+//only get upcomming events, not old! send current date from client, also add to db_com.js
     .get(function (req, res) {
         var type = req.query.type;
         if (type != null) {
@@ -15,7 +16,7 @@ router.route('/events')
             });
         }
     })
-    .post(function (req, res) {
+    .post(function (req, res) { //TODO: check if event allready exists
         handleHosts(req.body.hosts);
         //Check if user is approved to add events. Event is approved if the user is approved.
         db.getUser(req.body.uploader.fb_id, function (err, user) {
