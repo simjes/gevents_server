@@ -16,7 +16,7 @@ router.route('/events')
         }
     })
     .post(function (req, res) {
-        //TODO: add host if not allready done, how to get host info? manual ? user input?
+        handleHosts(req.body.hosts);
         //Check if user is approved to add events. Event is approved if the user is approved.
         db.getUser(req.body.uploader.fb_id, function (err, user) {
             if (user === null) {
@@ -36,10 +36,20 @@ router.route('/events')
         });
     });
 
+function handleHosts(hosts) {
+    hosts.forEach(function (host) {
+        db.getHostInfo(host.name, function (err, hostInfo) {
+            if (hostInfo === null) {
+                db.addHost(host);
+            }
+        });
+    });
+}
+
 function addEventAndRespond(eventInfo, apiResponse) {
     db.addEvent(eventInfo, function (err, result) {
         console.log(result);
-        apiResponse.send(result); //temp response
+        apiResponse.send(result);
     });
 }
 
@@ -48,28 +58,13 @@ function addEventAndRespond(eventInfo, apiResponse) {
 router.route('/events/:event_id')
     .get(function (req, res) {
         db.getEvent(req.params.event_id, function (err, event) {
-            var hostNames = event.hosts;
-            event.hosts = [];
-            //events without hosts?
-            var promises = hostNames.map(function (host) {
-                return new Promise(function (resolve, reject) {
-                    db.getHostInfo(host, function (err, hostInfo) {
-                        if (err) { return reject(err) }
-                        event.hosts.push(hostInfo);
-                        resolve();
-                    });
-                });
-            });
-
-            Promise.all(promises).then(function () {
-                res.send(event);
-            });
+            res.send(event);
         });
     });
 
 //TODO:
 //find events nearby: get user pos as params, check coords with radius
 //find coords for an adresse: do this client side?
-//check errors and respond accordingly?
+//check errors and respond accordingly? different response when saved?
 
 module.exports = router;

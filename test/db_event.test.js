@@ -98,7 +98,6 @@ describe('database testing for events', function () {
                             assert(result.length >= 2, "Length was wrong, Expected: 2 or more, got: " + result.length);
                             result.forEach(function (item) {
                                 assert(item.type === firstEvent.type && item.type == thirdEvent.type, "Not the same type, Expected: lan, got: " + item.type + ", " + firstEvent.type + ", " + thirdEvent.type);
-                                assert(item.approved === true, "Got an unapproved event: " + item.approved);
                             });
                             done();
                         });
