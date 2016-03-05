@@ -15,7 +15,8 @@ describe('database testing for events', function () {
             done();
         });
     })
-
+    
+    //use legit data
     testEvent1 = {
         name: "testname",
         type: "lan",

@@ -3,7 +3,6 @@ var router = express.Router();
 var db = require('../lib/db_com');
 
 router.route('/events')
-//only get upcomming events, not old! send current date from client, also add to db_com.js
     .get(function (req, res) {
         var type = req.query.type;
         if (type != null) {
@@ -17,25 +16,38 @@ router.route('/events')
         }
     })
     .post(function (req, res) { //TODO: check if event allready exists
-        handleHosts(req.body.hosts);
-        //Check if user is approved to add events. Event is approved if the user is approved.
-        db.getUser(req.body.uploader.fb_id, function (err, user) {
-            if (user === null) {
-                req.body.uploader.approved = false;
-                db.addUser(req.body.uploader, function () {
-                    req.body.approved = false;
-                    addEventAndRespond(req.body, res);
-                });
-            } else {
-                if (user.approved) {
-                    req.body.approved = true;
-                } else {
-                    req.body.approved = false;
-                }
-                addEventAndRespond(req.body, res);
-            }
-        });
+        if (eventExists(req.body)) {
+            res.send({ lel: "alrdy exists" });
+        } else {
+            saveEvent(req.body, res);
+        }
     });
+
+function eventExists(event) {
+    //TODO: check if event allready exists
+    //check name of event and fbid?
+    return false;
+}
+
+function saveEvent(event, apiResponse) {
+    handleHosts(event.hosts); 
+    //Check if user is approved to add events. Event is approved if the user is approved.
+    db.getUser(event.uploader.fb_id, function (err, user) {
+        if (user === null) {
+            event.uploader.approved = false;
+            db.addUser(event.uploader, function () {
+                event.approved = false;
+            });
+        } else {
+            if (user.approved) {
+                event.approved = true;
+            } else {
+                event.approved = false;
+            }
+        }
+        addEventAndRespond(event, apiResponse);
+    });
+}
 
 function handleHosts(hosts) {
     hosts.forEach(function (host) {
