@@ -19,7 +19,7 @@ describe('database testing for events', function () {
     //use legit data
     testEvent1 = {
         name: "testname",
-        type: "lan",
+        type: ["lan", "cosplay"],
         date_start: "2200-06-30T18:00:00.000Z",
         date_end: "2200-07-03T12:00:00.000Z",
         fb_link: "fblink",
@@ -38,7 +38,7 @@ describe('database testing for events', function () {
     }
     testEvent2 = {
         name: "testname2",
-        type: "cosplay",
+        type: ["cosplay"],
         date_start: "2200-06-30T18:00:00.000Z",
         date_end: "2200-07-03T12:00:00.000Z",
         fb_link: "fblink2",
@@ -58,7 +58,7 @@ describe('database testing for events', function () {
 
     testEvent3 = {
         name: "testname3",
-        type: "lan",
+        type: ["lan"],
         date_start: "2200-06-30T18:00:00.000Z",
         date_end: "2200-07-03T12:00:00.000Z",
         fb_link: "fblink2",
@@ -101,7 +101,7 @@ describe('database testing for events', function () {
                         db.getEventsByType("lan", function (err, result) {
                             assert(result.length >= 2, "Length was wrong, Expected: 2 or more, got: " + result.length);
                             result.forEach(function (item) {
-                                assert(item.type === firstEvent.type && item.type == thirdEvent.type, "Not the same type, Expected: lan, got: " + item.type + ", " + firstEvent.type + ", " + thirdEvent.type);
+                                assert(firstEvent.type.indexOf("lan") === 0 && thirdEvent.type.indexOf("lan") === 0, "Not the same type, Expected: 0, got: " + firstEvent.type.indexOf(item.type) + ", " + thirdEvent.type.indexOf(item.type));
                             });
                             done();
                         });
