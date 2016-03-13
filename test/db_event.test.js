@@ -197,10 +197,9 @@ describe('database testing for events', function() {
         db.addEvent(testEvent1, function() {
             db.addEvent(testEvent2, function() {
                 db.addEvent(testEvent4, function() {
-                    db.getLocalEvents({ lng: 59.8939529, lat: 10.6450359 }, function(err, result) {
-                        console.log(result);
+                    db.getLocalEvents({ lng: 59.9352717, lat: 10.7847496 }, function(err, result) {
                         assert(result.length === 1, "Got more than one event: " + result.length);
-
+                        assert(result[0].name === testEvent4.name, "Not the same event, Expected: " + testEvent4.name + ", got: " + result[0].name)
                         done();
                     });
                 });
