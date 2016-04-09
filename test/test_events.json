@@ -1,0 +1,215 @@
+[{
+        "name": "DigitalityX 2016",
+        "type": ["lan", "cosplay"],
+        "fb_link": "https://www.facebook.com/events/1660514624227880/",
+        "web_link": "https://www.geekevents.org/dx16/",
+        "img": "https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/11222179_1507105956256440_5828645921692580351_n.png?oh=36770bf621d84e0121cf0cb6de3f0531&oe=57926CC6",
+        "address": {
+            "street": "Gunnar Warebergs Gate 13",
+            "zip_code": "4021",
+            "city": "Stavanger"
+        },
+        "date_start": "2026-06-30T18:00:00.000Z",
+        "date_end": "2026-07-03T12:00:00.000Z",
+        "loc": [58.954723, 5.698567],
+        "price": 695,
+        "uploader": {
+            "name": "Simon Jespersen",
+            "fb_id": "100000165147511",
+            "mail": "simonjespersen1@hotmail.com",
+            "phone": "999999"
+        },
+        "hosts": [{
+            "name": "Stavanger Forum",
+            "mail": "",
+            "web_link": "http://stavanger-forum.no/",
+            "logo_link": "http://www.regionstavanger.com/ImageVault/Images/width_150/scope_0/filename_OeouxDEos8K3fylAiBKB.jpg/storage_Edited/conversionFormatType_WebSafe/ImageVaultHandler.aspx",
+            "fb_link": "https://www.facebook.com/Stavanger-Forum-116959275039256/?fref=ts"
+        }, {
+            "name": "Digitality X",
+            "mail": "",
+            "logo_link": "http://digitalityx.no/img/digitalityx-logo.svg",
+            "web_link": "http://www.digitalityx.no/",
+            "fb_link": "https://www.facebook.com/digitalityx/?fref=ts"
+        }],
+        "approved": true
+    }, {
+        "name": "Rogahack 2016",
+        "type": ["lan"],
+        "fb_link": "https://www.facebook.com/events/1607613266155183/",
+        "web_link": "https://www.geekevents.org/rh16/",
+        "address": {
+            "street": "Asheimveien 45",
+            "zip_code": "4318",
+            "city": "Sandnes"
+
+        },
+        "img": "https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/12038793_732730850191002_5781860754283235036_o.jpg",
+        "date_start": "2026-03-18T19:00:00.000Z",
+        "date_end": "2026-03-21T12:00:00.000Z",
+        "loc": [58.842508, 5.714232],
+        "price": 695,
+        "uploader": {
+            "name": "Simon Jespersen",
+            "fb_id": "100000165147511",
+            "mail": "simonjespersen1@hotmail.com",
+            "phone": "999999"
+        },
+        "hosts": [{
+            "name": "Rogahack",
+            "mail": "",
+            "web_link": "http://www.rogahack.no/2016/",
+            "fb_link": "https://www.facebook.com/RogaHack/?fref=ts",
+            "logo_link": "http://www.rogahack.no/2014/wp-content/uploads/2014/01/logo_980x156_flashy_blue.png"
+        }],
+        "approved": true
+    },
+
+    {
+        "name": "Desucon POP",
+        "type": ["cosplay"],
+        "fb_link": "https://www.facebook.com/events/1614957118754351/",
+        "web_link": "http://desucon.no/pop2016/billetter/",
+        "img": "http://desucon.no/pop2016/files/2015/12/desupop_logo.png",
+        "address": {
+            "street": "Messeveien 8",
+            "zip_code": "2004",
+            "city": "Lillestrøm"
+        },
+        "date_start": "2016-06-24T11:00:00.000Z",
+        "date_end": "2016-06-26T20:30:00.000Z",
+        "loc": [59.949994, 11.055432],
+        "price": 450,
+        "uploader": {
+            "name": "Runar Sunde",
+            "fb_id": "731665088",
+            "mail": "runisunde@gmail.com",
+            "phone": "999999"
+        },
+        "hosts": [{
+            "name": "Desucon",
+            "mail": "",
+            "web_link": "http://desucon.no/pop2016/",
+            "fb_link": "https://www.facebook.com/Desucon/?fref=ts",
+            "logo_link": "http://desucon.no/pop2016/files/2015/12/desupop_logo.png"
+        }],
+        "approved": false
+    },
+
+    {
+        "name": "old event, should not be show",
+        "type": ["cosplay"],
+        "fb_link": "https://www.facebook.com/events/1614957118754351/",
+        "web_link": "http://desucon.no/pop2016/billetter/",
+        "address": {
+            "street": "Messeveien 8",
+            "zip_code": "2004",
+            "city": "Lillestrøm"
+        },
+        "date_start": "2013-06-24T11:00:00.000Z",
+        "date_end": "2013-06-27T11:00:00.000Z",
+        "loc": [59.949994, 11.055432],
+        "price": 450,
+        "uploader": {
+            "name": "Runar Sunde",
+            "fb_id": "731665088",
+            "mail": "runisunde@gmail.com",
+            "phone": "999999"
+        },
+        "hosts": [{
+            "name": "Desucon",
+            "mail": "",
+            "web_link": "http://desucon.no/pop2016/",
+            "fb_link": "https://www.facebook.com/Desucon/?fref=ts"
+        }],
+        "approved": true
+    },
+
+    {
+        "name": "every type event",
+        "type": ["lan", "cosplay", "board", "other"],
+        "fb_link": "https://www.facebook.com/events/1607613266155183/",
+        "web_link": "https://www.geekevents.org/rh16/",
+        "address": {
+            "street": "Messeveien 8",
+            "zip_code": "2004",
+            "city": "Lillestrøm"
+        },
+        "img": "https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/12038793_732730850191002_5781860754283235036_o.jpg",
+        "date_start": "2026-03-18T19:00:00.000Z",
+        "date_end": "2026-03-21T12:00:00.000Z",
+        "loc": [2, 2],
+        "price": 695,
+        "uploader": {
+            "name": "Simon Jespersen",
+            "fb_id": "100000165147511",
+            "mail": "simonjespersen1@hotmail.com",
+            "phone": "999999"
+        },
+        "hosts": [{
+                "name": "Rogahack",
+                "mail": "",
+                "web_link": "http://www.rogahack.no/2016/",
+                "fb_link": "https://www.facebook.com/RogaHack/?fref=ts",
+                "logo_link": "http://www.rogahack.no/2014/wp-content/uploads/2014/01/logo_980x156_flashy_blue.png"
+            }, {
+                "name": "Stavanger Forum",
+                "mail": "",
+                "web_link": "http://stavanger-forum.no/",
+                "logo_link": "http://www.regionstavanger.com/ImageVault/Images/width_150/scope_0/filename_OeouxDEos8K3fylAiBKB.jpg/storage_Edited/conversionFormatType_WebSafe/ImageVaultHandler.aspx",
+                "fb_link": "https://www.facebook.com/Stavanger-Forum-116959275039256/?fref=ts"
+            },
+
+            {
+                "name": "Digitality X",
+                "mail": "",
+                "logo_link": "http://digitalityx.no/img/digitalityx-logo.svg",
+                "web_link": "http://www.digitalityx.no/",
+                "fb_link": "https://www.facebook.com/digitalityx/?fref=ts"
+            }
+
+        ],
+        "approved": true
+    },
+
+    {
+        "name": "free event",
+        "type": ["lan", "cosplay"],
+        "fb_link": "https://www.facebook.com/events/1660514624227880/",
+        "web_link": "https://www.geekevents.org/dx16/",
+        "img": "https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/11222179_1507105956256440_5828645921692580351_n.png?oh=36770bf621d84e0121cf0cb6de3f0531&oe=57926CC6",
+        "address": {
+            "street": "Gunnar Warebergs Gate 13",
+            "zip_code": "4021",
+            "city": "Stavanger"
+
+        },
+        "date_start": "2016-06-30T18:00:00.000Z",
+        "date_end": "2016-07-03T12:00:00.000Z",
+        "loc": [58.954723, 5.698567],
+        "price": 0,
+        "uploader": {
+            "name": "Simon Jespersen",
+            "fb_id": "100000165147511",
+            "mail": "simonjespersen1@hotmail.com",
+            "phone": "999999"
+        },
+        "hosts": [{
+                "name": "Stavanger Forum",
+                "mail": "",
+                "web_link": "http://stavanger-forum.no/",
+                "logo_link": "http://www.regionstavanger.com/ImageVault/Images/width_150/scope_0/filename_OeouxDEos8K3fylAiBKB.jpg/storage_Edited/conversionFormatType_WebSafe/ImageVaultHandler.aspx",
+                "fb_link": "https://www.facebook.com/Stavanger-Forum-116959275039256/?fref=ts"
+            },
+
+            {
+                "name": "Digitality X",
+                "mail": "",
+                "logo_link": "http://digitalityx.no/img/digitalityx-logo.svg",
+                "web_link": "http://www.digitalityx.no/",
+                "fb_link": "https://www.facebook.com/digitalityx/?fref=ts"
+            }
+        ],
+        "approved": true
+    }
+]
