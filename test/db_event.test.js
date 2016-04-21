@@ -19,7 +19,7 @@ describe('database testing for events', function() {
 				db.addEvent(event, function(err, result) {
 					resolve(result);
 				});
-			}))
+			}));
 		});
 		done();
 	});
@@ -67,7 +67,7 @@ describe('database testing for events', function() {
 				lat: 2
 			}, function(err, result) {
 				assert(result.length === 1, "Got more than one event: " + result.length);
-				assert(result[0].name === everyEventApprovedLocal.name, "Not the same event, Expected: " + everyEventApprovedLocal.name + ", got: " + result[0].name)
+				assert(result[0].name === everyEventApprovedLocal.name, "Not the same event, Expected: " + everyEventApprovedLocal.name + ", got: " + result[0].name);
 				done();
 			});
 		});
