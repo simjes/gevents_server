@@ -4,11 +4,11 @@ var db = require('../lib/db_com');
 
 router.route('/events')
 	.get(function(req, res) {
-		if (req.query.type !== null) {
+		if (req.query.type != null) {
 			db.getEventsByType(req.query.type, function(err, events) {
 				res.send(events);
 			});
-		} else if (req.query.lng !== null && req.query.lat !== null) {
+		} else if (req.query.lng != null && req.query.lat != null) {
 			db.getLocalEvents({
 				lng: req.query.lng,
 				lat: req.query.lat
